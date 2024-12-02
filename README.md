@@ -28,13 +28,6 @@ https://claude.ai
 yarn build
 yarn dev
 ```
-***
-### setup
-* .env
-
-```
-DB_FILE_NAME=file:local.db
-```
 
 ***
 ### example
