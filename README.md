@@ -30,9 +30,21 @@ yarn dev
 ```
 
 ***
+* drizzle - setting
+
+* https://orm.drizzle.team/docs/get-started/sqlite-new
+
+***
+* migrate
+```
+npx drizzle-kit generate
+npx drizzle-kit migrate
+```
+
+***
 ### example
 
-* sqlite1: sqlite + svelte
+* sqlite1: sqlite + drizzle + svelte
 
 ***
 ### ChangeLog
