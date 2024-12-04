@@ -11,7 +11,7 @@
         {#if process.env.NODE_ENV === "develop"}
             <link href="/static/main.css" rel="stylesheet" />
         {:else}
-            <link href="/public/main/style.css" rel="stylesheet" />
+            <link href="/public/static/main.css" rel="stylesheet" />
         {/if}
         </head>
     <body>

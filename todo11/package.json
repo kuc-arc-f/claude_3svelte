@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "dev": "NODE_ENV=develop npx nodemon",
-    "build": "rimraf dist && npm run build:server && npx vite build --mode client && npm run build:css",
+    "build": "npm run build:server && npx vite build --mode client && npm run build:css",
     "build:prod": "NODE_ENV=production npm run build",
     "build:server": "vite build --ssr src/index.ts --outDir dist",
     "build:css": "npx tailwindcss -i ./src/main.css -o ./public/static/main.css",
