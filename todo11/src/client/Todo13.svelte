@@ -20,6 +20,7 @@
         try {
             loading = true;
             todos = await api.getTodos(searchTerm);
+            //console.log(todos);
         } catch (e) {
             error = 'データの読み込みに失敗しました';
         } finally {
@@ -27,13 +28,41 @@
         }
     }
 
+    function getEmptyTodo(): Partial<Todo> {
+        return {
+            title: '',
+            content: '',
+            content_type: '',
+            is_public: false,
+            food_orange: false,
+            food_apple: false,
+            food_banana: false,
+            food_melon: false,
+            food_grape: false,
+            pub_date1 : new Date().toISOString().split('T')[0],
+            pub_date2 : new Date().toISOString().split('T')[0],
+            pub_date3 : new Date().toISOString().split('T')[0],
+            pub_date4 : new Date().toISOString().split('T')[0],
+            pub_date5 : new Date().toISOString().split('T')[0],
+            pub_date6 : new Date().toISOString().split('T')[0],
+            qty1: '',
+            qty2: '',
+            qty3: '',
+            qty4: '',
+            qty5: '',
+            qty6: '',
+        };
+    }
+
     function openCreateDialog() {
-        currentTodo = {};
+        currentTodo = getEmptyTodo();
         dialogMode = 'create';
         isDialogOpen = true;
     }
 
     function openEditDialog(todo: Todo) {
+console.log("#openEditDialog");
+console.log(todo);
         currentTodo = { ...todo };
         dialogMode = 'edit';
         isDialogOpen = true;
@@ -48,7 +77,8 @@
             }
             await loadTodos();
         } catch (e) {
-            error = '操作に失敗しました';
+          console.error(e);
+          error = '操作に失敗しました';
         }
     }
 

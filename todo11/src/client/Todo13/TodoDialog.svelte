@@ -12,11 +12,14 @@
 
   const handleSubmit = async () => {
       try {
+console.log("#handleSubmit");
+console.log(todo);
           const validatedData = todoSchema.parse(todo);
           dispatch('submit', validatedData);
           isOpen = false;
           errors = {};
       } catch (error) {
+          console.error(error);
           if (error.errors) {
               errors = error.errors.reduce((acc, curr) => {
                   acc[curr.path[0]] = curr.message;
@@ -34,7 +37,7 @@
 
 {#if isOpen}
 <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-    <div class="bg-white p-6 rounded-lg w-full max-w-2xl">
+    <div class="bg-white p-6 rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto">
         <h2 class="text-xl font-bold mb-4">
             {mode === 'create' ? 'TODO追加' : 'TODO編集'}
         </h2>
