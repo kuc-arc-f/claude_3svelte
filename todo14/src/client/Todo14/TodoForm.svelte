@@ -4,7 +4,8 @@
   import { format } from 'date-fns';
 
   export let isOpen: boolean;
-  export let initialTodo: any = null;
+  //export let initialTodo: any = null;
+  export let initialTodo: Record<string, any> = null;
   export let isEditMode: boolean = false;
 
   const dispatch = createEventDispatcher();
@@ -56,6 +57,9 @@
     content: z.string().min(1, '内容は必須です'),
   });
 
+  console.log("isEditMode=" , isEditMode);
+  //console.log("#initialTodo");
+  //console.log(initialTodo);
 
   onMount(() => {
     if (initialTodo) {
@@ -170,6 +174,7 @@
   <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
     <div class="bg-white p-6 rounded-md max-w-2xl w-full max-h-[90vh] overflow-y-auto">
       <h2 class="text-2xl font-bold mb-4">{isEditMode ? 'Edit Todo' : 'Add New Todo'}</h2>
+
       <form on:submit|preventDefault={handleSubmit}>
           <div class="mb-4">
               <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Title</label>

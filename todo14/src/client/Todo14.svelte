@@ -8,7 +8,7 @@
   let searchQuery = '';
   let isAddModalOpen = false;
   let isEditModalOpen = false;
-  let selectedTodo = null;
+  let selectedTodo: any = null;
   let API_URL = "";
 
     const fetchTodos = async () => {
@@ -58,6 +58,8 @@
 
  const openEditModal = (todo) => {
     selectedTodo = todo;
+console.log("#openEditModal");
+console.log(selectedTodo);
     isAddModalOpen = false;
     isEditModalOpen = true;
   };
@@ -76,6 +78,7 @@
   onMount(fetchTodos);
 </script>
 
+<!-- HTML -->
 <div class="container mx-auto p-4">
     <div class="flex justify-between items-center mb-4">
         <h1 class="text-2xl font-bold">Todos</h1>
@@ -121,11 +124,14 @@
       on:submit={handleFormSubmit}
         isEditMode={false}
     />
-    <TodoForm
-        isOpen={isEditModalOpen}
-        on:close={handleFormClose}
-        on:submit={handleFormSubmit}
-        initialTodo={selectedTodo}
-         isEditMode={true}
-    />
+    <!-- edit_form -->
+    {#if isEditModalOpen}
+      <TodoForm
+          bind:isOpen={isEditModalOpen}
+          on:close={handleFormClose}
+          on:submit={handleFormSubmit}
+          bind:initialTodo={selectedTodo}
+          isEditMode={true}
+      />
+    {/if}
 </div>
