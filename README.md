@@ -48,7 +48,8 @@ npx drizzle-kit migrate
 ### example
 
 * sqlite1: sqlite + drizzle + svelte
-
+* todo11 : d1 database + CF-workers , example
+* todo14 : d1 database + CF-workers , Gemini-2.0-flash-exp generate
 ***
 ### ChangeLog
 
