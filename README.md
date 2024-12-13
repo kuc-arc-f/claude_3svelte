@@ -10,14 +10,17 @@
 
 ***
 
-svelte + express , claude.ai generate
+LLM , Claude.ai generate , Svelte + express
 
 * sqlite example
 
 ***
 ### Related
 
-https://claude.ai
+* https://claude.ai
+
+* Gemini-2.0-flash-exp
+* https://aistudio.google.com/app/prompts/new_chat
 
 ***
 ### build
